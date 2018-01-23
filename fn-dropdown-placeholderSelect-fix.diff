@@ -1,0 +1,31 @@
+diff --git a/dist/semantic.js b/dist/semantic.js
+old mode 100644
+new mode 100755
+index de52e03..60ccaf2
+--- a/dist/semantic.js
++++ b/dist/semantic.js
+@@ -6206,6 +6206,16 @@ $.fn.dropdown = function(parameters) {
+                   ;
+                   if(settings.placeholder === 'auto' && value === '') {
+                     select.placeholder = name;
++
++                    if( settings.allowPlaceholderSelect )
++                    {
++                      select.values.push({
++                        name     : name,
++                        value    : value,
++                        disabled : disabled
++                      });
++                    }
++                    
+                   }
+                   else {
+                     select.values.push({
+@@ -8024,6 +8034,7 @@ $.fn.dropdown.settings = {
+   allowReselection       : false,      // whether current value should trigger callbacks when reselected
+   allowTab               : true,       // add tabindex to element
+   allowCategorySelection : false,      // allow elements with sub-menus to be selected
++  allowPlaceholderSelect : true,       // True if you are allowed to select the placeholder value
+ 
+   fireOnInit             : false,      // Whether callbacks should fire when initializing dropdown values
+ 
